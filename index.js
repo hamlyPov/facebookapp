@@ -73,13 +73,13 @@ function kittenMessage(recipientId, text) {
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
-                            "title": "Kitten",
-                            "subtitle": "Cute kitten picture",
+                            "title": "Hot Coffe",
+                            "subtitle": "$5.00",
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
-                                "title": "Show kitten"
+                                "title": "Show "
                                 }, {
                                 "type": "postback",
                                 "title": "I like this",
@@ -87,13 +87,13 @@ function kittenMessage(recipientId, text) {
                             }]
                         },
                         {
-                            "title": "Kitten2",
-                            "subtitle": "Cute kitten picture hamly",
-                            "image_url": imageUrl ,
+                            "title": "Milk Coffee Frape",
+                            "subtitle": "$3.50",
+                            "image_url": "https://www.baristaproshop.com/blog/images/Frappe%20Cups.jpg" ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
-                                "title": "Show kitten"
+                                "title": "Show "
                                 }, {
                                 "type": "postback",
                                 "title": "I like this",
