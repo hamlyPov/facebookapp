@@ -15,10 +15,10 @@ app.post('/webhook', function (req, res) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }*/
         if (event.message && event.message.text) {
-		    if (!kittenMessage(event.sender.id, event.message.text)) {
-		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-		    }
-		}
+    if (!kittenMessage(event.sender.id, event.message.text)) {
+        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+    }
+}
     }
     res.sendStatus(200);
 });
@@ -58,23 +58,22 @@ function sendMessage(recipientId, message) {
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
     
-    /*text = text || "";
-    var values = text.split(' ');*/
+    text = text || "";
+    var values = text.split(' ');
     
-   /* if (values.length === 3 && values[0] === 'kitten') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {*/
-    if(text){
-            if(text==='hi')
-           // var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            var imageUrl="http://2.bp.blogspot.com/-ncql7TfNVus/Vp4qop_hbII/AAAAAAAAGj4/JzCPNKPJKzw/s1600/coffee.jpg";
+    if (values.length === 3 && values[0] === 'kitten') {
+        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
+            
+            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+            
             message = {
                 "attachment": {
                     "type": "template",
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
-                            "title": "Hot Cofee",
-                            "subtitle": "$5.00",
+                            "title": "Kitten",
+                            "subtitle": "Cute kitten picture",
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
@@ -87,12 +86,12 @@ function kittenMessage(recipientId, text) {
                             }]
                         },
                         {
-                            "title": "Espresso Italy",
-                            "subtitle": "$3.00",
+                            "title": "Kitten2",
+                            "subtitle": "Cute kitten picture hamly",
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
-                                "url": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQt01W7sk2ENLr-CFm3SAlD69zjeW5CxU8YbR6hc-vz4-uWiRh1EA",
+                                "url": imageUrl,
                                 "title": "Show kitten"
                                 }, {
                                 "type": "postback",
