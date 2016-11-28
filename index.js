@@ -64,8 +64,8 @@ function kittenMessage(recipientId, text) {
     if (values.length === 3 && values[0] === 'kitten') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
             
-            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            
+            //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+            var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
             message = {
                 "attachment": {
                     "type": "template",
