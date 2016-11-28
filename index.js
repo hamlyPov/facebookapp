@@ -15,10 +15,10 @@ app.post('/webhook', function (req, res) {
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
         }*/
         if (event.message && event.message.text) {
-		    if (!kittenMessage(event.sender.id, event.message.text)) {
-		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-		    }
-		}
+    if (!kittenMessage(event.sender.id, event.message.text)) {
+        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+    }
+}
     }
     res.sendStatus(200);
 });
@@ -83,10 +83,11 @@ function kittenMessage(recipientId, text) {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            },
-                            {
+                            }]
+                        },
+                        {
                             "title": "Kitten2",
-                            "subtitle": "Cute kitten picture",
+                            "subtitle": "Cute kitten picture hamly",
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
