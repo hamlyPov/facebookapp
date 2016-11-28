@@ -69,7 +69,7 @@ function kittenMessage(recipientId, text) {
             message = {
                 "attachment": {
                     "type": "template",
-                    "payload": {
+                    "payload": [{
                         "template_type": "generic",
                         "elements": [{
                             "title": "Kitten",
@@ -85,7 +85,24 @@ function kittenMessage(recipientId, text) {
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
                             }]
                         }]
-                    }
+                    },
+                    {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": "Kitten",
+                            "subtitle": "Cute kitten picture",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show kitten"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this",
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }]
+                        }]
+                    }]
                 }
             };
     
