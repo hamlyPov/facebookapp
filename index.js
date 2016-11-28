@@ -58,12 +58,13 @@ function sendMessage(recipientId, message) {
 // send rich message with kitten
 function kittenMessage(recipientId, text) {
     
-    text = text || "";
-    var values = text.split(' ');
+    // text = text || "";
+    // var values = text.split(' ');
     
-    if (values.length === 3 && values[0] === 'kitten') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-            
+  /*  if (values.length === 3 && values[0] === 'kitten') {
+        if (Number(values[1]) > 0 && Number(values[2]) > 0) {*/
+      if(text){
+            if(text==='hi' || text==='hello' || text=='Hi' || text==='Hello'){
             //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
             var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
             message = {
