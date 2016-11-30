@@ -45,7 +45,7 @@ app.post('/webhook', function (req, res) {
             console.log("Postback received: " + JSON.stringify(event.postback));
         }
     }
-    res.sendStatus(200);
+   // res.sendStatus(200);
 });
 
 // generic function sending messages
@@ -73,7 +73,6 @@ function kittenMessage(recipientId, text) {
     
     if (text) {
 
-          
                     var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
                     message = {
                         "attachment": {
