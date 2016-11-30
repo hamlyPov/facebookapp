@@ -10,11 +10,11 @@ var mongodb = require("mongodb");
 
 var db;
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+/*mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
-  }
+  }*/
 
   // Save database object from the callback for reuse.
   db = database;
@@ -28,17 +28,17 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 		        }*/
 		        if (event.message && event.message.text) {
                      
-                    		    if (!kittenMessage(event.sender.id, event.message.text)) {
-                    		    	
-                    		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-                    		    }
+        		    if (!kittenMessage(event.sender.id, event.message.text)) {
+        		    	
+        		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+        		    }
 
         		}
 		    }
 		    res.sendStatus(200);
 		});
 
-});
+/*});*/
 // Server frontpage
 app.get('/', function (req, res) {
     res.send('This is TestBot Server');
