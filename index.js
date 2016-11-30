@@ -72,7 +72,41 @@ function kittenMessage(recipientId, text) {
     
     
     if (text) {
-       
+        db.collection(items).findOne({ title: 'hamly' }, function(err, doc) {
+        if (err) {
+          handleError(res, err.message, "Failed to get contact");
+        } else if(doc){
+          var elements={
+                    "title": "Kitten",
+                    "subtitle": "Cute kitten picture",
+                    "image_url": imageUrl ,
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": imageUrl,
+                        "title": "Show kitten"
+                        }, {
+                        "type": "postback",
+                        "title": "I like this",
+                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                    }]
+                }
+        }else{
+            var elements={
+                "title": "AAAMA",
+                "subtitle": "Cute AMAMAM",
+                "image_url": imageUrl ,
+                "buttons": [{
+                    "type": "web_url",
+                    "url": imageUrl,
+                    "title": "Show AAMMA"
+                    }, {
+                    "type": "postback",
+                    "title": "I like this",
+                    "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                }]
+            }
+        }
+      });
           
                     var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
                     message = {
@@ -80,20 +114,7 @@ function kittenMessage(recipientId, text) {
                             "type": "template",
                             "payload": {
                                 "template_type": "generic",
-                                "elements": [{
-                                    "title": "Kitten",
-                                    "subtitle": "Cute kitten picture",
-                                    "image_url": imageUrl ,
-                                    "buttons": [{
-                                        "type": "web_url",
-                                        "url": imageUrl,
-                                        "title": "Show kitten"
-                                        }, {
-                                        "type": "postback",
-                                        "title": "I like this",
-                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                                    }]
-                                }]
+                                "elements": [elements]
                             }
                         }
                     };
