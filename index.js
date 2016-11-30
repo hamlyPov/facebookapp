@@ -82,43 +82,28 @@ function kittenMessage(recipientId, text) {
             //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
                 var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
                
-        		    message = {
-                        "attachment": {
-                            "type": "template",
-                            "payload": {
-                                "template_type": "generic",
-                                "elements": [{
-                                    "title": "Hot Coffe",
-                                    "subtitle": "$5.00",
-                                    "image_url": imageUrl ,
-                                    "buttons": [{
-                                        "type": "web_url",
-                                        "url": imageUrl,
-                                        "title": "Show "
-                                        }, {
-                                        "type": "postback",
-                                        "title": "hamly",
-                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+        		   message = {
+                            "attachment": {
+                                "type": "template",
+                                "payload": {
+                                    "template_type": "generic",
+                                    "elements": [{
+                                        "title": "Kitten",
+                                        "subtitle": "Cute kitten picture",
+                                        "image_url": imageUrl ,
+                                        "buttons": [{
+                                            "type": "web_url",
+                                            "url": imageUrl,
+                                            "title": "Show kitten"
+                                            }, {
+                                            "type": "postback",
+                                            "title": "I like this",
+                                            "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                        }]
                                     }]
-                                },
-                                {
-                                    "title": "Milk Coffee Frape",
-                                    "subtitle": "$3.50",
-                                    "image_url": "https://www.baristaproshop.com/blog/images/Frappe%20Cups.jpg" ,
-                                    "buttons": [{
-                                        "type": "web_url",
-                                        "url": imageUrl,
-                                        "title": "Show "
-                                        }, {
-                                        "type": "postback",
-                                        "title": "I like this",
-                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                                    }]
-                                }]
+                                }
                             }
-                        }
-                    };
-    				    
+                        };
     			
         
                 sendMessage(recipientId, message);
