@@ -6,18 +6,18 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 3000));
-var mongodb = require("mongodb");
+//var mongodb = require("mongodb");
 
-var db;
+//var db;
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+/*mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
   }
 
   // Save database object from the callback for reuse.
-  db = database;
+  db = database;*/
   console.log("Database connection ready");
 		app.post('/webhook', function (req, res) {
 		    var events = req.body.entry[0].messaging;
@@ -35,7 +35,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 		    res.sendStatus(200);
 		});
 
-});
+//});
 // Server frontpage
 app.get('/', function (req, res) {
     res.send('This is TestBot Server');
