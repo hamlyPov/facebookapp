@@ -72,11 +72,9 @@ function kittenMessage(recipientId, text) {
     
     
     if (text) {
-        db.collection(items).findOne({ title: 'hamly' }, function(err, doc) {
-        if (err) {
-          handleError(res, err.message, "Failed to get contact");
-        } else if(doc){
-           var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
+
+          
+                    var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
                     message = {
                         "attachment": {
                             "type": "template",
@@ -90,6 +88,20 @@ function kittenMessage(recipientId, text) {
                                         "type": "web_url",
                                         "url": imageUrl,
                                         "title": "Show kitten"
+                                        }, {
+                                        "type": "postback",
+                                        "title": "I like this",
+                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                    }]
+                                },
+                                {
+                                    "title": "Kitten 2",
+                                    "subtitle": "Cute kitten picture",
+                                    "image_url": imageUrl ,
+                                    "buttons": [{
+                                        "type": "web_url",
+                                        "url": imageUrl,
+                                        "title": "Show kitten 2"
                                         }, {
                                         "type": "postback",
                                         "title": "I like this",
@@ -105,40 +117,6 @@ function kittenMessage(recipientId, text) {
             
             return true;
         
-        }else{
-            
-        }
-      });
-          
-                   /* var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
-                    message = {
-                        "attachment": {
-                            "type": "template",
-                            "payload": {
-                                "template_type": "generic",
-                                "elements": [{
-                                    "title": "Kitten",
-                                    "subtitle": "Cute kitten picture",
-                                    "image_url": imageUrl ,
-                                    "buttons": [{
-                                        "type": "web_url",
-                                        "url": imageUrl,
-                                        "title": "Show kitten"
-                                        }, {
-                                        "type": "postback",
-                                        "title": "I like this",
-                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                                    }]
-                                }]
-                            }
-                        }
-                    };
-                   
-    
-            sendMessage(recipientId, message);
-            
-            return true;
-        */
     }
     
     return false;
