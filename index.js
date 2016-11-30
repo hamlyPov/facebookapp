@@ -97,7 +97,7 @@ function kittenMessage(recipientId, text) {
                                         "title": "Show "
                                         }, {
                                         "type": "postback",
-                                        "title": doc.title,
+                                        "title": "hamly",
                                         "payload": "User " + recipientId + " likes kitten " + imageUrl,
                                     }]
                                 },
