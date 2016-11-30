@@ -27,11 +27,13 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 		            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		        }*/
 		        if (event.message && event.message.text) {
-		    if (!kittenMessage(event.sender.id, event.message.text)) {
-		    	
-		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-		    }
-		}
+                     
+                    		    if (!kittenMessage(event.sender.id, event.message.text)) {
+                    		    	
+                    		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+                    		    }
+                           
+        		}
 		    }
 		    res.sendStatus(200);
 		});
@@ -82,10 +84,7 @@ function kittenMessage(recipientId, text) {
             if(text==='hi' || text==='hello' || text=='Hi' || text==='Hello'){
             //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
             var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
-            db.collection(items).findOne({title:'hamly'},function(err, docs) {
-            	if (err) {
-				      handleError(res, err.message, "Failed to get contacts.");
-				    } else {
+           
 				     // res.status(200).json(docs);
 				     // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
 		 message = {
@@ -125,8 +124,7 @@ function kittenMessage(recipientId, text) {
                 }
             };
 				    }
-			});
-            
+			
     
             sendMessage(recipientId, message);
             
