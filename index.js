@@ -32,7 +32,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
                     		    	
                     		        sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
                     		    }
-                           
+
         		}
 		    }
 		    res.sendStatus(200);
@@ -80,57 +80,55 @@ function kittenMessage(recipientId, text) {
     
   /*  if (values.length === 3 && values[0] === 'kitten') {
         if (Number(values[1]) > 0 && Number(values[2]) > 0) {*/
-      if(text){
+        if(text){
             if(text==='hi' || text==='hello' || text=='Hi' || text==='Hello'){
             //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
-           
-				     // res.status(200).json(docs);
-				     // sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
-		 message = {
-                "attachment": {
-                    "type": "template",
-                    "payload": {
-                        "template_type": "generic",
-                        "elements": [{
-                            "title": "Hot Coffe",
-                            "subtitle": "$5.00",
-                            "image_url": imageUrl ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show "
-                                }, {
-                                "type": "postback",
-                                "title": doc.title,
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        },
-                        {
-                            "title": "Milk Coffee Frape",
-                            "subtitle": "$3.50",
-                            "image_url": "https://www.baristaproshop.com/blog/images/Frappe%20Cups.jpg" ,
-                            "buttons": [{
-                                "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show "
-                                }, {
-                                "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        }]
-                    }
-                }
-            };
-				    }
-			
-    
-            sendMessage(recipientId, message);
-            
-            return true;
+                var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
+               
+        		    message = {
+                        "attachment": {
+                            "type": "template",
+                            "payload": {
+                                "template_type": "generic",
+                                "elements": [{
+                                    "title": "Hot Coffe",
+                                    "subtitle": "$5.00",
+                                    "image_url": imageUrl ,
+                                    "buttons": [{
+                                        "type": "web_url",
+                                        "url": imageUrl,
+                                        "title": "Show "
+                                        }, {
+                                        "type": "postback",
+                                        "title": doc.title,
+                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                    }]
+                                },
+                                {
+                                    "title": "Milk Coffee Frape",
+                                    "subtitle": "$3.50",
+                                    "image_url": "https://www.baristaproshop.com/blog/images/Frappe%20Cups.jpg" ,
+                                    "buttons": [{
+                                        "type": "web_url",
+                                        "url": imageUrl,
+                                        "title": "Show "
+                                        }, {
+                                        "type": "postback",
+                                        "title": "I like this",
+                                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                    }]
+                                }]
+                            }
+                        }
+                    };
+    				    
+    			
+        
+                sendMessage(recipientId, message);
+                
+                return true;
+            }
         }
-    }
     
     return false;
     
