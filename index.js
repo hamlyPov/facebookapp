@@ -22,7 +22,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
       db = database;
     console.log("Database connection ready");
 
-    // Facebook Webhook
+    
+});
+// Facebook Webhook
     app.get('/webhook', function (req, res) {
         if (req.query['hub.verify_token'] === 'testbot_verify_token') {
             res.send(req.query['hub.challenge']);
@@ -30,8 +32,6 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
             res.send('Invalid verify token');
         }
     });
-});
-
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
@@ -73,10 +73,7 @@ function kittenMessage(recipientId, text) {
     
     if (text) {
        
-            db.collection(items).findOne({title:'hamly'},function(err, docs) {
-                if (err) {
-                      handleError(res, err.message, "Failed to get contacts.");
-                } else {
+          
                     var imageUrl="https://www.sefa.nl/wp-content/uploads/2016/04/koffieee.jpg";
                     message = {
                         "attachment": {
@@ -100,18 +97,12 @@ function kittenMessage(recipientId, text) {
                             }
                         }
                     };
-                    sendMessage(recipientId, message);
-            
-                     return true;
-                }
-            });
-            //var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-            
+                   
     
-            /*sendMessage(recipientId, message);
+            sendMessage(recipientId, message);
             
             return true;
-        */
+        
     }
     
     return false;
